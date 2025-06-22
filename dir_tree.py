@@ -16,10 +16,7 @@ cur_dir = None
 def print_dir_tree(dir_path):
     global i
     global cur_dir
-    # if i > 10: # Limit the depth of the directory tree to avoid too much output
-    #     print(colorama.Fore.YELLOW + ('|' + ' '*8)*i + '>>>')
-    #     return
-        
+
     for path in dir_path.iterdir():
         if path.is_dir():
             print(colorama.Fore.BLUE + ('|' + ' '*8)*i  +  str(path.relative_to(dir_path)) + '/')
@@ -35,7 +32,8 @@ def print_dir_tree(dir_path):
             if path.name[0] == '.': # Hidden files
                 print(colorama.Fore.LIGHTBLACK_EX + ('|' + ' '*8)*i + '|- ' + str(path.relative_to(dir_path)))
             else:
-                print(colorama.Fore.GREEN + ('|' + ' '*8)*i + '|- ' + str(path.relative_to(dir_path)))
+                print(colorama.Fore.GREEN + ('|' + ' '*8)*i + '|- ' + str(path.relative_to(dir_path)) + colorama.Fore.LIGHTBLACK_EX + ' (' + str(path.stat().st_size) + ' bytes)')
+                # colorama.Style.RESET_ALL
 
 # root_path = Path('/Users/vitaly/Documents/Work')
 print_dir_tree(root_path)
