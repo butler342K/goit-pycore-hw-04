@@ -84,13 +84,23 @@ def get_cats_info(path):
 # Output results
 
 print_title('Theme 6')
+
 print('Завдання 1. Аналіз заробітної плати')
 total, average = total_salary("users.txt")
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
 print(' ')
+
 print('Завдання 2. Інформація про котів')
 cats_info = get_cats_info('cats_db.txt')
 print(cats_info)
+print(' ')
 
+print('Завдання 3. Створення дерева директорій')
+print('$ python3 dir_tree.py <path_to_directory>')
+print('Вкладенність директорій обмежена 10 рівнями. Обмеження виводяться як >>>')
+print(' ')
 
+print('Завдання 4. CLI бот')
+print('$ python3 bot.py')
+print(' ')
 # print_footer('End of Homework')
